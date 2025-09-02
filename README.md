@@ -1,24 +1,42 @@
-# how-to-create-cocktail-1
 
-This template should help get you started developing with Vue 3 in Vite.
+Задача:
+Реализовать приложение с выводом данных полученных по API.
+Пример схематичного интерфейса приложения изображен в app_example.png
 
-## Recommended IDE Setup
+Исходные данные:
+- Запрещено использовать любого рода boilerplates
+- Всю информацию запрашиваем по GET-запросу: https://www.thecocktaildb.com/api/json/v1/1/search.php?s=<cocktail_code>
+- Доступные cocktail_code: margarita, mojito, a1, kir
+- Из эндпоинта используем все коктейли относящиеся к одному виду. Например: эндпоинт возвращает 4 вида mojito, на странице с данным коктейлем выводим все 4 вида
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Функциональные требования:
+- Использовать менеджер состояния для сохранения данных и исключения дублирующих запросов
+- Учесть обработку ошибок, где это необходимо
+- Список кодов (cocktail_code) использовать для названия пунктов меню и формирования url-страниц
+- Каждый пункт меню ведет на страницу со своим описанием
+- Активный пункт меню должен быть выделен
+- По умолчанию первый пункт меню, является главной страницей и использует его же урл
+- Переход на url-адрес "/", должен отправлять пользователя на url-первого пункта меню
+- При переходе на несуществующую страницу, показать 404 ошибку в произвольной форме
+- Резиновая верстка интерфейса. Максимальная ширина 1024px, минимальная 360px
+- lazy-loading для загрузки изображений
 
-## Type Support for `.vue` Imports in TS
+Нефункциональные требования:
+- Масштабируемая архитектура. Код должен быть структурирован таким образом, чтобы его можно было легко расширять и модифицировать.
+- Quality Gates (не более 5 штук). Приложение должно содержать набор инструментов необходимых для поддержания качества кода.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Требования по стеку на выбор:
+- Typescript + vue 2/3, react + state manager
+- webpack, vite
+- eslint, prettier
+- html 5, css 3
+- scss/sass, stylus, less, postCSS
+- Адаптивная верстка (chrome, safari)
+- unit-testing (опционально)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
+По окончанию:
+- выложить в репозиторий
+- развернуть на любом бесплатном хостинге, например Vercel
 
 ### Compile and Hot-Reload for Development
 
@@ -26,14 +44,9 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Результаты выполнения
 
-```sh
-npm run build
-```
+- реализован тестовый проект с плоским дизайном.
+- Vue 3, Pinia, TS, Vite, CSS, адаптивная верстка
 
-### Lint with [ESLint](https://eslint.org/)
 
-```sh
-npm run lint
-```

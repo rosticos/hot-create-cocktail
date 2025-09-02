@@ -1,13 +1,17 @@
 <template>
   <div class="cocktail-page">
-    <div v-if="isLoading" class="spinner" role="status" aria-label="Загрузка" />
+    <div v-if="isLoading" class="spinner" />
 
     <div v-else-if="error" class="cocktail-page__alert">
       Произошла ошибка при загрузке {{ error ? `(${error})` : '' }}
     </div>
 
     <div v-else-if="items.length" class="grid">
-      <CocktailItem v-for="item in items" :key="item?.idDrink" :item="item" />
+      <CocktailItem 
+        v-for="item in items" 
+        :key="item?.idDrink" 
+        :item="item" 
+      />
     </div>
   </div>
 </template>

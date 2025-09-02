@@ -4,7 +4,7 @@
       v-if="item.strDrinkThumb"
       class="cocktail-item__image"
       :src="item.strDrinkThumb"
-      :alt="item.name"
+      :alt="item.strDrink"
       loading="lazy"
       decoding="async"
     />
@@ -41,11 +41,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { APIDrink } from '@/features/cocktail'
+import { computed, type PropType } from 'vue'
 
 const props = defineProps({
   item: {
-    type: Object,
+    type: Object as PropType<APIDrink>,
     default: () => ({}),
   },
 })
